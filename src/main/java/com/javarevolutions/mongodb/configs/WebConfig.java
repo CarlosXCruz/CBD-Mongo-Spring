@@ -9,6 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/inicio").setViewName("forward:/index");
+		registry.addViewController("/inicio").setViewName("forward:/monitores");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 	
