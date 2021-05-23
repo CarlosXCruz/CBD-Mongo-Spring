@@ -2,9 +2,12 @@ package com.javarevolutions.mongodb.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javarevolutions.mongodb.entity.Entidad;
+import com.javarevolutions.mongodb.entity.Monitores;
 import com.javarevolutions.mongodb.service.JRService;
+import com.javarevolutions.mongodb.service.MonitoresService;
 
 @Controller
 @RequestMapping(path = "/inicio")
@@ -21,10 +26,17 @@ public class JRController {
 	@Autowired
 	JRService serviceJR;
 	
-	@GetMapping(value = "/")
-	public String index() {
-		return "index.html";
-	}
+	@Autowired
+	MonitoresService serviceMonitores;
+	
+	@GetMapping(value = "/monitores")
+	public @ResponseBody String monitores(Model model, HttpServletRequest request) {
+
+		Iterable<Monitores> monitores = serviceMonitores.consultarTodos();
+		model.addAttribute("monitores", monitores);
+
+		return "monitores.html";
+    }
 	
 	@RequestMapping(value = "/error")
 	public String error() {

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link rel='shortcut icon' type='image/x-icon' href='./img/fav.ico' />
+
+    <object th:replace="../static/includes/header :: headerCss"></object>
+    <link rel="stylesheet" href="css/home.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script data-ad-client="ca-pub-4404823056465400" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <title> Home </title>
+</head>
+
+<body>
+
+
+<div class="listado">
+		<th><div  class="intro"> <h1>Monitores</h1><br />
+			
+		<div class ="row" style="overflow-x: hidden!important;max-width: 100%;">
+		<center>
+		<ul th:each="monitores: ${monitores}" class="monitores" style="list-style: none;">
+		
+			<h1><span style="font-weight: bold;"> <li th:text="${monitores.id"></li></span></h1>
+			
+		</ul>
+	</div>
+
+			
+				
+    <br />
+
+</body>
+
+
+</html>
