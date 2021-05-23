@@ -10,6 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/inicio").setViewName("forward:/index");
 		registry.addViewController("/inicio").setViewName("forward:/monitores");
+		registry.addViewController("/semillas").setViewName("forward:/semillas");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 	
